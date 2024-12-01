@@ -1,0 +1,35 @@
+CREATE DATABASE stdnt1;
+USE stdnt1;
+
+CREATE TABLE dept(
+id INT PRIMARY KEY,
+name VARCHAR(20));
+
+INSERT INTO dept
+VALUES
+(101, "Ganesh"),
+(102, "Mangesh");
+
+SELECT * FROM dept;
+
+CREATE TABLE teacher(
+id INT PRIMARY KEY,
+name VARCHAR(20),
+dept_id INT,
+FOREIGN KEY (dept_id) REFERENCES dept(id)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+);
+
+INSERT INTO teacher
+VALUE
+(101, "Eng", 101),
+(102, "IT", 102);
+
+UPDATE dept
+SET id = 103
+WHERE id = 102;
+DROP TABLE teacher;
+SELECT * FROM teacher;
+SELECT * FROM dept;
+DROP DATABASE stdnt1;
